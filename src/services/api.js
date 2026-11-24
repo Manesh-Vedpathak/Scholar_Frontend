@@ -1,14 +1,18 @@
 import axios from "axios";
 
+const API_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://scholar-backend-xtx3.onrender.com";
+
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL || "http://localhost:8080"}/api`,
+  baseURL: `${API_URL}/api`,
   headers: {
     Accept: "application/json"
   }
 });
 
 api.interceptors.request.use(
-  config => {
+  (config) => {
     const token = localStorage.getItem("token");
 
     if (token) {
@@ -28,7 +32,7 @@ api.interceptors.request.use(
 
     return config;
   },
-  error => Promise.reject(error)
+  (error) => Promise.reject(error)
 );
 
 export default api;
