@@ -18,13 +18,7 @@ export default function StudentSidebar() {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
-  // Mobile sidebar state
   const [isOpen, setIsOpen] = useState(false);
-
-  // Open sidebar
-  const openSidebar = () => {
-    setIsOpen(true);
-  };
 
   // Close sidebar
   const closeSidebar = () => {
@@ -35,20 +29,16 @@ export default function StudentSidebar() {
   const handleLogout = () => {
     closeSidebar();
     logout();
-    navigate("/login");
-  };
-
-  // Close sidebar after clicking a navigation link
-  const handleNavigation = () => {
-    closeSidebar();
+    navigate("/login", { replace: true });
   };
 
   return (
     <>
       {/* Mobile Hamburger Button */}
       <button
+        type="button"
         className="student-mobile-menu-toggle"
-        onClick={openSidebar}
+        onClick={() => setIsOpen(true)}
         aria-label="Open student menu"
         aria-expanded={isOpen}
       >
@@ -74,13 +64,14 @@ export default function StudentSidebar() {
             <GraduationCap size={27} />
           </div>
 
-          <div>
+          <div className="student-brand-text">
             <h2>ScholarConnect</h2>
             <span>Student Portal</span>
           </div>
 
           {/* Mobile Close Button */}
           <button
+            type="button"
             className="student-mobile-close"
             onClick={closeSidebar}
             aria-label="Close student menu"
@@ -95,9 +86,10 @@ export default function StudentSidebar() {
           MAIN MENU
         </div>
 
+        {/* Dashboard */}
         <NavLink
           to="/student/dashboard"
-          onClick={handleNavigation}
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `student-menu-item ${isActive ? "active" : ""}`
           }
@@ -106,9 +98,10 @@ export default function StudentSidebar() {
           <span>Dashboard</span>
         </NavLink>
 
+        {/* Browse Scholarships */}
         <NavLink
           to="/student/scholarships"
-          onClick={handleNavigation}
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `student-menu-item ${isActive ? "active" : ""}`
           }
@@ -117,9 +110,10 @@ export default function StudentSidebar() {
           <span>Browse Scholarships</span>
         </NavLink>
 
+        {/* My Applications */}
         <NavLink
           to="/student/applications"
-          onClick={handleNavigation}
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `student-menu-item ${isActive ? "active" : ""}`
           }
@@ -128,9 +122,10 @@ export default function StudentSidebar() {
           <span>My Applications</span>
         </NavLink>
 
+        {/* Notifications */}
         <NavLink
           to="/student/notifications"
-          onClick={handleNavigation}
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `student-menu-item ${isActive ? "active" : ""}`
           }
@@ -139,9 +134,10 @@ export default function StudentSidebar() {
           <span>Notifications</span>
         </NavLink>
 
+        {/* My Profile */}
         <NavLink
           to="/student/profile"
-          onClick={handleNavigation}
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `student-menu-item ${isActive ? "active" : ""}`
           }
@@ -150,9 +146,12 @@ export default function StudentSidebar() {
           <span>My Profile</span>
         </NavLink>
 
-        {/* Sidebar Bottom */}
+        {/* Logout */}
         <div className="student-sidebar-bottom">
-          <button onClick={handleLogout}>
+          <button
+            type="button"
+            onClick={handleLogout}
+          >
             <LogOut size={19} />
             <span>Logout</span>
           </button>
