@@ -838,7 +838,8 @@
   display: none;
   position: fixed;
   top: 15px;
-  left: 15px;
+  right: 15px;  /* Moved to right */
+  left: auto;   /* Removed left positioning */
   width: 43px;
   height: 43px;
   align-items: center;
