@@ -161,3 +161,88 @@ body {
     visibility: visible;
   }
 }
+
+/* =========================================
+   FIX ADMIN MOBILE SIDEBAR MENU LABELS
+========================================= */
+
+@media (max-width: 750px) {
+
+  /* Show MAIN MENU heading */
+  .admin-sidebar .admin-menu-label,
+  .management-sidebar .management-menu-label {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 12px !important;
+    margin: 15px 10px !important;
+  }
+
+  /* Display navigation items horizontally */
+  .admin-sidebar .admin-menu-item,
+  .management-sidebar .management-menu-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+
+    width: 100% !important;
+    min-height: 55px !important;
+
+    padding: 14px 16px !important;
+    margin: 5px 0 !important;
+
+    box-sizing: border-box !important;
+    text-align: left !important;
+  }
+
+  /* Force menu names to appear */
+  .admin-sidebar .admin-menu-text,
+  .management-sidebar .admin-menu-text {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+
+    color: #ffffff !important;
+  }
+
+  /* Keep icons visible */
+  .admin-sidebar .admin-menu-item svg,
+  .management-sidebar .management-menu-item svg {
+    flex-shrink: 0;
+  }
+
+  /* Logout with text */
+  .admin-sidebar .admin-sidebar-bottom button,
+  .management-sidebar .management-sidebar-bottom button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+
+    width: 100% !important;
+    padding: 14px 16px !important;
+  }
+
+  /* Brand text */
+  .admin-sidebar .admin-brand-text,
+  .management-sidebar .admin-brand-text {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Close button remains on the right */
+  .admin-sidebar .admin-mobile-close,
+  .management-sidebar .admin-mobile-close {
+    display: flex !important;
+    margin-left: auto !important;
+  }
+}

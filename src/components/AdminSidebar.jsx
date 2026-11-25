@@ -113,9 +113,7 @@ export default function AdminSidebar({
 
       {/* Admin Sidebar */}
       <aside
-        className={`${styles.sidebar} ${
-          isOpen ? "open" : ""
-        }`}
+        className={`${styles.sidebar} ${isOpen ? "open" : ""}`}
       >
         {/* Sidebar Header */}
         <div className={styles.brand}>
@@ -123,7 +121,7 @@ export default function AdminSidebar({
             <GraduationCap size={27} />
           </div>
 
-          <div>
+          <div className="admin-brand-text">
             <h2>ScholarConnect</h2>
             <span>Admin Portal</span>
           </div>
@@ -139,11 +137,12 @@ export default function AdminSidebar({
           </button>
         </div>
 
-        {/* Main Menu */}
+        {/* Main Menu Label */}
         <div className={styles.menuLabel}>
           MAIN MENU
         </div>
 
+        {/* Navigation Links */}
         {links.map(({ key, label, to, icon: Icon }) => {
           const active = activePage
             ? activePage === key
@@ -154,23 +153,19 @@ export default function AdminSidebar({
               key={key}
               to={to}
               onClick={closeSidebar}
-              className={`${styles.item}${
-                active ? " active" : ""
-              }`}
+              className={`${styles.item}${active ? " active" : ""}`}
               aria-current={active ? "page" : undefined}
             >
               <Icon size={19} />
 
-              {isAdminStyle ? (
-                <span>{label}</span>
-              ) : (
-                label
-              )}
+              <span className="admin-menu-text">
+                {label}
+              </span>
             </Link>
           );
         })}
 
-        {/* Sidebar Bottom */}
+        {/* Logout */}
         <div className={styles.bottom}>
           <button
             type="button"
@@ -179,11 +174,9 @@ export default function AdminSidebar({
           >
             <LogOut size={19} />
 
-            {isAdminStyle ? (
-              <span>Logout</span>
-            ) : (
-              "Logout"
-            )}
+            <span className="admin-menu-text">
+              Logout
+            </span>
           </button>
         </div>
       </aside>
