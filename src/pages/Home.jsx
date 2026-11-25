@@ -84,6 +84,8 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
 
+          {/* BRAND */}
+
           <a href="/" className="brand" onClick={closeMenu}>
             <div className="brand-icon">
               <GraduationCap size={27} />
@@ -101,10 +103,12 @@ function App() {
           {/* NAVIGATION LINKS */}
 
           <div
+            id="mobile-navigation"
             className={`nav-links ${
               menuOpen ? "nav-links-open" : ""
             }`}
           >
+
             <a href="#home" onClick={closeMenu}>
               Home
             </a>
@@ -124,34 +128,60 @@ function App() {
             <a href="#documents" onClick={closeMenu}>
               Documents
             </a>
+
+            {/* MOBILE LOGIN AND REGISTER BUTTONS */}
+
+            <div className="mobile-nav-actions">
+
+              <a
+                href="/login"
+                className="mobile-login-link"
+                onClick={closeMenu}
+              >
+                Login
+              </a>
+
+              <a
+                href="/register"
+                className="mobile-register-button"
+                onClick={closeMenu}
+              >
+                Register
+                <ArrowRight size={18} />
+              </a>
+
+            </div>
+
           </div>
 
-          {/* DESKTOP ACTIONS */}
+          {/* DESKTOP LOGIN AND REGISTER */}
 
           <div className="nav-actions">
+
             <a href="/login" className="login-link">
               Login
             </a>
 
-            <a
-              href="/register"
-              className="register-button"
-            >
-              Register <ArrowRight size={16} />
+            <a href="/register" className="register-button">
+              Register
+              <ArrowRight size={16} />
             </a>
+
           </div>
 
-          {/* FUNCTIONAL MOBILE HAMBURGER MENU */}
+          {/* HAMBURGER MENU */}
 
           <button
             type="button"
             className="mobile-menu"
             aria-label={
-              menuOpen ? "Close navigation menu" : "Open navigation menu"
+              menuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
             }
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
-            onClick={() => setMenuOpen((previous) => !previous)}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? (
               <X size={28} />
@@ -282,6 +312,7 @@ function App() {
         <div className="section-container">
 
           <div className="section-heading">
+
             <span className="section-label">
               WHY SCHOLARCONNECT
             </span>
@@ -294,6 +325,7 @@ function App() {
               A simple and transparent platform designed to make
               scholarship management easier for students.
             </p>
+
           </div>
 
           <div className="feature-grid">
@@ -520,7 +552,7 @@ function App() {
 
         <div className="footer-bottom">
           <p>Project Developed by Manesh Vedpathak</p>
-          
+          <p>Designed for a better educational future.</p>
         </div>
 
       </footer>
