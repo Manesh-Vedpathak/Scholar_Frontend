@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import {
   GraduationCap,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   BookOpen,
   Landmark,
   Menu,
+  X,
   ChevronRight,
   Award,
   LockKeyhole
@@ -19,6 +21,12 @@ import {
 import "../styles/Home.css";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const features = [
     {
       icon: <FileText />,
@@ -76,7 +84,7 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
 
-          <a href="/" className="brand">
+          <a href="/" className="brand" onClick={closeMenu}>
             <div className="brand-icon">
               <GraduationCap size={27} />
             </div>
@@ -85,34 +93,71 @@ function App() {
               <h2>
                 Scholar<span>Connect</span>
               </h2>
+
               <small>Scholarship Management Portal</small>
             </div>
           </a>
 
-          <div className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#scholarship">Scholarships</a>
-            <a href="#process">How It Works</a>
-            <a href="#documents">Documents</a>
+          {/* NAVIGATION LINKS */}
+
+          <div
+            className={`nav-links ${
+              menuOpen ? "nav-links-open" : ""
+            }`}
+          >
+            <a href="#home" onClick={closeMenu}>
+              Home
+            </a>
+
+            <a href="#about" onClick={closeMenu}>
+              About
+            </a>
+
+            <a href="#scholarship" onClick={closeMenu}>
+              Scholarships
+            </a>
+
+            <a href="#process" onClick={closeMenu}>
+              How It Works
+            </a>
+
+            <a href="#documents" onClick={closeMenu}>
+              Documents
+            </a>
           </div>
+
+          {/* DESKTOP ACTIONS */}
 
           <div className="nav-actions">
             <a href="/login" className="login-link">
               Login
             </a>
 
-            <a href="/register" className="register-button">
+            <a
+              href="/register"
+              className="register-button"
+            >
               Register <ArrowRight size={16} />
             </a>
           </div>
 
+          {/* FUNCTIONAL MOBILE HAMBURGER MENU */}
+
           <button
             type="button"
             className="mobile-menu"
-            aria-label="Open menu"
+            aria-label={
+              menuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMenuOpen((previous) => !previous)}
           >
-            <Menu />
+            {menuOpen ? (
+              <X size={28} />
+            ) : (
+              <Menu size={28} />
+            )}
           </button>
 
         </div>
@@ -145,12 +190,20 @@ function App() {
 
             <div className="hero-buttons">
 
-              <a href="/register" className="primary-button">
+              <a
+                href="/register"
+                className="primary-button"
+                onClick={closeMenu}
+              >
                 Apply for Scholarship
                 <ArrowRight size={18} />
               </a>
 
-              <a href="#about" className="secondary-button">
+              <a
+                href="#about"
+                className="secondary-button"
+                onClick={closeMenu}
+              >
                 Explore More
                 <ChevronRight size={18} />
               </a>
@@ -467,7 +520,7 @@ function App() {
 
         <div className="footer-bottom">
           <p>Project Developed by Manesh Vedpathak</p>
-          <p>Designed for a better educational future.</p>
+          
         </div>
 
       </footer>

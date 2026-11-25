@@ -1,6 +1,4 @@
-
-
-/* ===== Combined from: src/App.css ===== */
+/* ===== ScholarConnect Home Page CSS ===== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
@@ -22,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
 }
 
 body {
@@ -43,13 +42,15 @@ button {
   overflow: hidden;
 }
 
+/* ===== NAVBAR ===== */
+
 .navbar {
   height: 84px;
   background: #fff;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -60,6 +61,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .brand {
@@ -76,6 +78,7 @@ button {
   color: white;
   display: grid;
   place-items: center;
+  flex-shrink: 0;
 }
 
 .brand h2 {
@@ -97,6 +100,7 @@ button {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 29px;
 }
 
@@ -142,10 +146,27 @@ button {
 
 .mobile-menu {
   display: none;
+  align-items: center;
+  justify-content: center;
   border: none;
-  background: none;
+  background: transparent;
   color: var(--primary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background .2s;
 }
+
+.mobile-menu:hover {
+  background: #eaf1ff;
+}
+
+.mobile-menu:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ===== HERO SECTION ===== */
 
 .hero {
   background:
@@ -265,6 +286,8 @@ button {
   margin-top: 3px;
 }
 
+/* ===== HERO VISUAL ===== */
+
 .hero-visual {
   min-height: 410px;
   display: flex;
@@ -371,6 +394,8 @@ button {
   font-weight: 700;
 }
 
+/* ===== OPTIONAL FLOATING CARDS ===== */
+
 .floating-card {
   position: absolute;
   z-index: 3;
@@ -423,6 +448,8 @@ button {
   margin-top: 3px;
 }
 
+/* ===== COMMON SECTION ===== */
+
 .section-container {
   max-width: 1240px;
   margin: auto;
@@ -452,6 +479,8 @@ button {
   font-size: 14px;
   line-height: 1.8;
 }
+
+/* ===== FEATURES ===== */
 
 .features-section {
   background: white;
@@ -507,6 +536,8 @@ button {
   font-size: 12px;
   font-weight: 700;
 }
+
+/* ===== SCHOLARSHIP SECTION ===== */
 
 .scholarship-section {
   background: #f5f8ff;
@@ -604,6 +635,8 @@ button {
   margin-top: 25px;
 }
 
+/* ===== PROCESS ===== */
+
 .process-section {
   background: white;
 }
@@ -640,6 +673,8 @@ button {
   font-size: 14px;
   line-height: 1.6;
 }
+
+/* ===== DOCUMENTS ===== */
 
 .documents-section {
   background: #f5f8ff;
@@ -692,6 +727,8 @@ button {
   flex-shrink: 0;
 }
 
+/* ===== CTA ===== */
+
 .cta-section {
   background: linear-gradient(110deg, #123578, #2155b6);
   color: white;
@@ -738,6 +775,8 @@ button {
   font-size: 13px;
   font-weight: 800;
 }
+
+/* ===== FOOTER ===== */
 
 .footer {
   background: #101e38;
@@ -805,7 +844,10 @@ button {
   font-size: 11px;
 }
 
+/* ===== TABLET RESPONSIVE ===== */
+
 @media (max-width: 1000px) {
+
   .nav-links {
     gap: 14px;
   }
@@ -827,19 +869,100 @@ button {
   }
 }
 
+/* ===== MOBILE RESPONSIVE ===== */
+
 @media (max-width: 700px) {
+
   .navbar {
     height: 72px;
   }
 
-  .nav-links,
+  .nav-container {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  .brand h2 {
+    font-size: 19px;
+  }
+
+  .brand small {
+    font-size: 10px;
+  }
+
+  .brand-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  /* MOBILE NAVIGATION CLOSED BY DEFAULT */
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 20px;
+    background: #ffffff;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+  }
+
+  /* MOBILE NAVIGATION OPEN */
+
+  .nav-links.nav-links-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 15px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+    background: #f5f8ff;
+  }
+
+  /* HIDE DESKTOP BUTTONS */
+
   .nav-actions {
     display: none;
   }
 
+  /* SHOW FUNCTIONAL HAMBURGER BUTTON */
+
   .mobile-menu {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: var(--primary);
+    border-radius: 8px;
+    z-index: 1001;
   }
+
+  .mobile-menu:hover {
+    background: #eaf1ff;
+  }
+
+  /* HERO */
 
   .hero-container,
   .scholarship-layout,
@@ -848,12 +971,16 @@ button {
   }
 
   .hero-container {
-    padding-top: 65px;
+    padding: 65px 25px;
     gap: 30px;
   }
 
   .hero-content h1 {
     font-size: 40px;
+  }
+
+  .hero-content > p {
+    font-size: 14px;
   }
 
   .hero-visual {
@@ -882,6 +1009,8 @@ button {
     left: 0;
   }
 
+  /* COMMON SECTIONS */
+
   .section-container {
     padding: 65px 20px;
   }
@@ -892,15 +1021,21 @@ button {
     font-size: 29px;
   }
 
+  /* FEATURES AND PROCESS */
+
   .feature-grid,
   .steps-grid {
     grid-template-columns: 1fr;
   }
 
+  /* DOCUMENTS */
+
   .document-list {
     grid-template-columns: 1fr;
     padding: 22px;
   }
+
+  /* CTA */
 
   .cta-container {
     flex-direction: column;
@@ -911,6 +1046,8 @@ button {
   .cta-container h2 {
     font-size: 25px;
   }
+
+  /* FOOTER */
 
   .footer-container {
     grid-template-columns: 1fr 1fr;
@@ -925,7 +1062,10 @@ button {
   }
 }
 
+/* ===== SMALL MOBILE ===== */
+
 @media (max-width: 400px) {
+
   .footer-container {
     grid-template-columns: 1fr;
   }
@@ -940,5 +1080,29 @@ button {
 
   .floating-card {
     padding: 9px;
+  }
+
+  .brand h2 {
+    font-size: 17px;
+  }
+
+  .brand small {
+    font-size: 9px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
