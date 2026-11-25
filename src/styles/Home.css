@@ -1120,53 +1120,101 @@ button {
   text-decoration: none;
 }
 
-/* Show buttons inside mobile hamburger menu */
+/* =====================================
+   MOBILE LOGIN & REGISTER BUTTONS
+===================================== */
+
+/* Hide mobile buttons on desktop */
+.mobile-nav-actions {
+  display: none;
+}
 
 @media (max-width: 700px) {
 
   .mobile-nav-actions {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
     gap: 12px;
     padding: 20px 0 10px;
+    margin: 5px 0 0;
     border-top: 1px solid var(--border);
-    margin-top: 5px;
   }
 
-  .mobile-login-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    color: var(--primary);
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 8px;
-    background: white;
-  }
+  /* LOGIN BUTTON */
 
-  .mobile-login-link:hover {
-    background: #f5f8ff;
-  }
+  .mobile-nav-actions .mobile-login-link {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 
-  .mobile-register-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(110deg, #0879df, #1746a2);
-    color: white;
+    min-height: 54px;
+    padding: 14px 20px;
+
+    background: #ffffff !important;
+    color: #1746a2 !important;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+
+    border: 1px solid #e8edf5;
     border-radius: 10px;
-    font-size: 16px;
-    font-weight: 700;
+    text-decoration: none !important;
+
+    box-shadow: none;
+  }
+
+  .mobile-nav-actions .mobile-login-link:hover {
+    background: #f5f8ff !important;
+    color: #1746a2 !important;
+  }
+
+  /* REGISTER BUTTON */
+
+  .mobile-nav-actions .mobile-register-button {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    width: 100%;
+    min-height: 58px;
+    padding: 15px 20px;
+
+    background: linear-gradient(
+      110deg,
+      #0879df,
+      #1746a2
+    ) !important;
+
+    color: #ffffff !important;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+
+    border: none !important;
+    border-radius: 10px;
+    text-decoration: none !important;
+
+    gap: 12px;
+
     box-shadow: 0 7px 18px rgba(23, 70, 162, 0.15);
   }
 
-  .mobile-register-button:hover {
-    background: var(--primary-dark);
+  .mobile-nav-actions .mobile-register-button span,
+  .mobile-nav-actions .mobile-register-button svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
+  .mobile-nav-actions .mobile-register-button:hover {
+    background: #102f70 !important;
+    color: #ffffff !important;
   }
 
 }
