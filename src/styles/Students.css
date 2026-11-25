@@ -829,3 +829,90 @@
     padding: 17px;
   }
 }
+
+/* =========================================
+   STUDENT MOBILE MENU BUTTON
+========================================= */
+
+.student-mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 43px;
+  height: 43px;
+  align-items: center;
+  justify-content: center;
+  background: #10284b;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Close Button */
+
+.student-mobile-close {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Sidebar Overlay */
+
+.student-sidebar-overlay {
+  display: none;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 750px) {
+
+  .student-mobile-menu-toggle {
+    display: flex;
+  }
+
+  .student-mobile-close {
+    display: flex;
+  }
+
+  .student-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .student-sidebar {
+    z-index: 1001;
+  }
+
+  .student-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .student-main {
+    padding-top: 75px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 751px) {
+
+  .student-mobile-menu-toggle,
+  .student-mobile-close,
+  .student-sidebar-overlay {
+    display: none !important;
+  }
+}

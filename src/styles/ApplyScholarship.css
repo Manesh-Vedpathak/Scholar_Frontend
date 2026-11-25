@@ -670,16 +670,143 @@
   }
 }
 
+/* =========================================
+   STUDENT SIDEBAR - MOBILE RESPONSIVE
+========================================= */
+
 @media (max-width: 750px) {
+
   .student-layout {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Sidebar hidden by default */
+
+  .student-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    min-height: 100vh;
+
+    padding: 22px 17px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #10284b;
+    z-index: 1001;
+
+    overflow-y: auto;
+
+    transform: translateX(-100%);
+    visibility: hidden;
+
+    transition:
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  /* Sidebar opens when open class is added */
+
+  .student-sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .student-brand {
+    padding: 5px 8px 30px;
+  }
+
+  .student-menu-label {
     display: block;
   }
 
-  .student-sidebar {
+  .student-menu-item {
+    display: flex;
     width: 100%;
-    min-height: auto;
-    padding: 15px;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 13px 14px;
+    margin: 4px 0;
+    font-size: 14px;
   }
+
+  .student-sidebar-bottom {
+    margin-top: auto;
+    padding-top: 25px;
+  }
+
+  .student-sidebar-bottom button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Dashboard full width */
+
+  .student-main {
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .student-topbar h1 {
+    font-size: 22px;
+  }
+
+  .student-welcome {
+    padding: 22px;
+  }
+
+  .student-welcome h2 {
+    font-size: 21px;
+  }
+
+  .student-welcome > svg {
+    width: 45px;
+  }
+
+  .student-scholarship-grid,
+  .student-scholarship-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .student-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 450px) {
+
+  .student-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .student-welcome > svg {
+    display: none;
+  }
+
+  .student-panel {
+    padding: 16px;
+  }
+
+  .student-main {
+    padding: 14px;
+  }
+}
 
   .student-brand {
     padding-bottom: 15px;
@@ -733,7 +860,7 @@
     align-items: stretch;
     flex-direction: column;
   }
-}
+
 
 @media (max-width: 450px) {
   .student-stats {
