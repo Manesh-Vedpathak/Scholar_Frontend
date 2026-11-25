@@ -552,7 +552,6 @@ function App() {
 
         <div className="footer-bottom">
           <p>Project Developed by Manesh Vedpathak</p>
-          <p>Designed for a better educational future.</p>
         </div>
 
       </footer>
